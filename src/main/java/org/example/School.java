@@ -1,16 +1,75 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class School {
-    private List<Student> students = new ArrayList<>();
+    private Map<Integer, Student> students = new Map<Integer, Student>() {
+        @Override
+        public int size() {
+            return 0;
+        }
+
+        @Override
+        public boolean isEmpty() {
+            return false;
+        }
+
+        @Override
+        public boolean containsKey(Object key) {
+            return false;
+        }
+
+        @Override
+        public boolean containsValue(Object value) {
+            return false;
+        }
+
+        @Override
+        public Student get(Object key) {
+            return null;
+        }
+
+        @Override
+        public Student put(Integer key, Student value) {
+            return null;
+        }
+
+        @Override
+        public Student remove(Object key) {
+            return null;
+        }
+
+        @Override
+        public void putAll(Map<? extends Integer, ? extends Student> m) {
+
+        }
+
+        @Override
+        public void clear() {
+
+        }
+
+        @Override
+        public Set<Integer> keySet() {
+            return Set.of();
+        }
+
+        @Override
+        public Collection<Student> values() {
+            return List.of();
+        }
+
+        @Override
+        public Set<Entry<Integer, Student>> entrySet() {
+            return Set.of();
+        }
+    };
 
     public void addStudent(Student student ){
-        students.add(student);
+        students.put(student.getId(), student);
     }
 
-    public List<Student> getStudents() {
+    public Map<Integer,Student> getStudents() {
         return students;
     }
 
@@ -22,7 +81,7 @@ public class School {
     }
 
     public Student getStudentById(int id){
-        for (Student student : students){
+        for (Student student : students.values()){
             if (student.getId() == id){
                 return student;
             }

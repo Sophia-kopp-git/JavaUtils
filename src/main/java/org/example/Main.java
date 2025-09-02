@@ -49,5 +49,34 @@ public class Main {
         student1.addCourse(course1);
 
         System.out.println("Classes: " + student1.getCourses());
+
+
+        //Pharmacy
+        Medication med1 = new Medication();
+        med1.setName("med1");
+        med1.setPrice(3.20);
+        med1.setAvailablity(true);
+
+        Pharmacy pharmacy = new Pharmacy();
+        pharmacy.save(med1);
+
+        System.out.println("get count:" + pharmacy.getCount());
+        System.out.println("found med 1:" + pharmacy.find("med1"));
+        System.out.println("found med 2:" + pharmacy.find("med2"));
+        System.out.println(pharmacy.toString());
+
+        Medication med2 = new Medication();
+        med1.setName("med2");
+        med1.setPrice(10.20);
+        med1.setAvailablity(false);
+        pharmacy.save(med2);
+        System.out.println("get count:" + pharmacy.getCount());
+        System.out.println(pharmacy.toString());
+
+        pharmacy.delete("med1");
+        System.out.println("get count:" + pharmacy.getCount());
+        System.out.println(pharmacy.toString());
+
+
     }
 }
